@@ -3,20 +3,29 @@ import Emailinput from './emailinput';
 import Passwordinput from './passwordinput';
 import Loginerror from './loginerror';
 
-const Login =(props)=> {
-    	const error =(props.error)? <Loginerror  {...props}/> :null;
+
+
+class Login extends React.Component {
+    constructor(props) {
+        super(props);
+    }
+    onSubmit(e){
+    	e.preventDefault();
+    	this.props.handleSubmit();
+    }
+    render() {
+        	
 	        return (
 	    	<div className="login">
-	        	<error />
-				<form onSubmit={props.handleSubmit}>
-					<Emailinput value={props.email} onChange={props.handleEmail}/>
-					<Passwordinput value={props.password} onChange={props.handlePassword}/>
+	    		<Loginerror  {...this.props}/>
+				<form onSubmit={this.onSubmit.bind(this)}>
+					<Emailinput value={this.props.email} onChange={this.props.handleEmail}/>
+					<Passwordinput value={this.props.password} onChange={this.props.handlePassword}/>
+					<button type="submit">Log in</button>
 				</form>
 			 </div>
 		);
     }
-
-
-
+}
 
 export default Login;

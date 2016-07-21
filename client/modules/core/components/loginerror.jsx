@@ -2,18 +2,21 @@ import React from 'react';
 import Error from './error';
 const Loginerror = ({error}) => {
 
-	let msg='';
+	
 	if(error)
-	switch (error.error) {
-		case 401:
+	{
+		let msg='';
+		switch (error.error) {
+		case 403:
 			msg='Wrong email/password combination';
 			break;
 		default:
 			// statements_def
 			break;
+		}
+		return (<Error msg={msg}/>)			
 	}
-
-	return (<Error msg={msg}/>)
+	return (null)
 }
 
 export default Loginerror;

@@ -3,13 +3,20 @@ import {useDeps, composeAll, composeWithTracker, compose} from 'mantra-core';
 import Login from '../components/login.jsx';
 
 export const composer = ({context}, onData) => {
-  const {Meteor, Collections} = context();
+  const {Store} = context();
+  Store.subscribe(state=>{
+  	onData(null,Store.getState().LoginReducer)
+  })
 
-  onData(null, {});
+  const {LoginReducer}=Store.getState()
+  onData(null, LoginReducer);
 };
 
 export const depsMapper = (context, actions) => ({
-  context: () => context
+  context: () => context,
+  handleSubmit:actions.login.login,
+  handleEmail:actions.login.setEmail,
+  handlePassword:actions.login.setPassword
 });
 
 export default composeAll(
