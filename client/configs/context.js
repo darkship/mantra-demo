@@ -3,13 +3,15 @@ import {Meteor} from 'meteor/meteor';
 import {FlowRouter} from 'meteor/kadira:flow-router';
 import {ReactiveDict} from 'meteor/reactive-dict';
 import {Tracker} from 'meteor/tracker';
+import {createStore} from 'redux';
 
-export default function () {
+export default function ({reducers}) {
   return {
     Meteor,
     FlowRouter,
     Collections,
     LocalState: new ReactiveDict(),
+    Store:new createStore(reducers),
     Tracker
   };
 }
