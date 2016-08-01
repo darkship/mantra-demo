@@ -7,7 +7,7 @@ const Loginerror = ({error}) => {
 	{
 		let msg='';
 		switch (error.error) {
-		case 403:
+		case 401:
 			msg='Wrong email/password combination';
 			break;
 		default:
