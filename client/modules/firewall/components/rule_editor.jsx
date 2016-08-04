@@ -17,24 +17,24 @@ class RuleEditor extends React.Component {
         <div className='row'>
           <div className='form-group col-xs-6'>
             <label htmlFor='inbound_host'>Inbound host</label>
-            <Input name='inbound_host'type='text' className='form-control' placeholder='Inbound host' value={this.props.inbound_host} onChange={this.props.setInboundHost} required='required'/>
+            <Input name='inbound_host'type='text' className='form-control' placeholder='Inbound host' value={this.props.inbound_host} onChange={this.props.setInboundHost} required='required' pattern='^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$' title='Ip address'/>
           </div>
           <div className='form-group col-xs-6'>
             <label htmlFor='inbound_port'>Inbound port</label>
-            <Input name='inbound_port'type='number' className='form-control' placeholder='Inbound host' max='9999' value={this.props.inbound_port} onChange={this.props.setInboundPort} required='required'/>
+            <Input name='inbound_port'type='number' className='form-control' placeholder='Inbound host' min='0' max='65535' value={this.props.inbound_port} onChange={this.props.setInboundPort} required='required'/>
           </div>
         </div>
         <div className='row'>
           <div className='form-group col-xs-6'>
             <label htmlFor='outbound_host'>Outbound host</label>
-            <Input name='outbound_host'type='text' className='form-control' placeholder='Outbound host' value={this.props.outbound_host} onChange={this.props.setOutboundHost} required='required'/>
+            <Input name='outbound_host'type='text' className='form-control' placeholder='Outbound host' value={this.props.outbound_host} onChange={this.props.setOutboundHost} required='required' pattern='^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$' title='Ip address'/>
           </div>
           <div className='form-group col-xs-6'>
             <label htmlFor='outbound_port'>Outbound port</label>
-            <Input name='outbound_port'type='number' className='form-control' placeholder='Outbound host' max='9999' value={this.props.outbound_port} onChange={this.props.setOutBoundPort} required='required'/>
+            <Input name='outbound_port'type='number' className='form-control' placeholder='Outbound host' min='0' max='65535' value={this.props.outbound_port} onChange={this.props.setOutBoundPort} required='required'/>
           </div>
           <div className='form-group col-xs-3'>
-            <select className="form-control" required='required' value={this.props.action} onChange={this.setAction.bind(this)}>
+            <select className="form-control" required value={this.props.action} onChange={this.setAction.bind(this)}>
               <option>Select Action</option>
               <option value='drop' >Drop</option>
               <option value='reject' >Reject</option>
