@@ -5,6 +5,7 @@ import initContext from './configs/context';
 // modules
 import coreModule from './modules/core';
 import firewallModule from './modules/firewall';
+import ipModule from './modules/ip';
 
 //reducers
 const coreReducer = coreModule.reducers;
@@ -20,4 +21,5 @@ const context = initContext({reducers});
 const app = createApp(context);
 app.loadModule(coreModule);
 app.loadModule(firewallModule);
+app.loadModule(ipModule);
 app.init();

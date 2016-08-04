@@ -15,6 +15,6 @@ export default function ({reducers}) {
     Store:new createStore(reducers),
     Tracker,
     Accounts,
-    Modules:[{key:'firewall',url:'firewall',name:'Firewall rules'}],
+    Modules:[{key:'firewall',url:'firewall',name:'Firewall rules'},{key:'ip',url:'ip',name:'My IPs'}],
   };
 }
