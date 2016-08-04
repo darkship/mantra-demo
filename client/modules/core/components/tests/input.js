@@ -1,7 +1,7 @@
 const {describe, it} = global;
 import {expect,spy} from 'chai';
 
-import {shallow} from 'enzyme';
+import {shallow,mount} from 'enzyme';
 import Input from '../input';
 import TestUtils from 'react-addons-test-utils'
 
@@ -15,14 +15,15 @@ describe('core.components.input', () => {
   	expect(el.find('input').props().type).to.equal('text');	
   });
 
-  xit('onChange',(done)=>{
-  	const onChange = (v)=>{
-  		expect(v).to.equal('abc');
-  		done();
-  	};
-  	const props={type:'text',value:'abc',onChange};
-  	el.setProps(props);
-
-  	TestUtils.Simulate.change(el);//doen't work ?
+  it('onChange',(done)=>{
+    const onChange = (v)=>{
+      expect(v).to.equal('abc');
+      done();
+    };
+    const props={type:'text',value:'abc',onChange};
+    const el = mount(<Input {...props} />);
+  	
+    expect(el.find('input')).to.have.length(1)
+  	el.find('input').simulate('change');
   });
 });

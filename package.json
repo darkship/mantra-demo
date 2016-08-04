@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "mantra-demo",
   "scripts": {
-    "test": "mocha .scripts/mocha_boot.js client/**/tests/**/*.js --compilers js:babel-core/register"
+    "test": "mocha .scripts/mocha_boot.js client/**/tests/**/*.js lib/**/tests/**/*.js --compilers js:babel-core/register"
   },
   "repository": {
     "type": "git",
@@ -13,7 +13,10 @@
   "license": "ISC",
   "dependencies": {
     "mantra-core": "^1.2.0",
+    "meteor-node-stubs": "^0.2.3",
     "react": "^15.0.0",
+    "react-dnd": "^2.1.4",
+    "react-dnd-html5-backend": "^2.1.2",
     "react-dom": "^15.0.0",
     "react-komposer": "^1.3.0",
     "react-mounter": "^1.0.0",
