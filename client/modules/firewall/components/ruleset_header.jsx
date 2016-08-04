@@ -4,8 +4,8 @@ class RulesetHeader extends React.Component {
   constructor(props) {
     super(props);
     this.state={
-    	title:this.props.ruleSet.title,
-    	ruleSet:this.props.ruleSet
+    	title:props.ruleSet.title,
+    	ruleSet:props.ruleSet
     };
   }
   updateTitle(title){
