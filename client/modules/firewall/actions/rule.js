@@ -23,17 +23,20 @@ export default {
 	setOutBoundPort:({Store},outbound_port)=>{
 		Store.dispatch({type:'RULE_CREATOR_SET_OUTBOUND_PORT',outbound_port})
 	},
+	setAction:({Store},action)=>{
+		Store.dispatch({type:'RULE_CREATOR_SET_ACTION',action})
+	},
 	create:({Collections,Store,FlowRouter})=>{
 		const state=Store.getState().RuleReducer.RuleCreatorReducer;
 		const firewall_rule_set_id=FlowRouter.getParam('ruleset');
-		const {title,inbound_host,inbound_port,outbound_host,outbound_port}=state;
+		const {title,inbound_host,inbound_port,outbound_host,outbound_port,action}=state;
 
-		
+
 		let firewall_rule_set= Collections.FirewallRuleSet.findOne(firewall_rule_set_id)
-		const ruleData={title,inbound_host,inbound_port:parseInt(inbound_port),outbound_host,outbound_port:parseInt(outbound_port),firewall_rule_set_id};
-		
+		const ruleData={title,inbound_host,inbound_port:parseInt(inbound_port),outbound_host,outbound_port:parseInt(outbound_port),firewall_rule_set_id,action};
+
 		let rule=new Collections.FirewallRule(ruleData);
-		
+
 		rule.validate({simulate:true},function(error){
 			if(error)
 			{
@@ -84,7 +87,7 @@ export default {
 			new_rule_ids.splice(dragIndex, 1);
 			new_rule_ids.splice(hoverIndex, 0, rule._id)
 
-		
+
 		firewall_rule_set.set('rule_ids',new_rule_ids);
 		firewall_rule_set.save();
 	},
@@ -97,8 +100,8 @@ export default {
 	},
 	updateRule:({Store},rule)=>{
 		const state=Store.getState().RuleReducer.RuleUpdaterReducer
-		const {title,inbound_host,inbound_port,outbound_host,outbound_port}=state;
-		const newRule={title,inbound_host,inbound_port:parseInt(inbound_port),outbound_host,outbound_port:parseInt(outbound_port)}
+		const {title,inbound_host,inbound_port,outbound_host,outbound_port,action}=state;
+		const newRule={title,inbound_host,inbound_port:parseInt(inbound_port),outbound_host,outbound_port:parseInt(outbound_port),action}
 		rule.set(newRule)
 		rule.save();
 		Store.dispatch({type:'RULE_UPDATER_REMOVE_RULE',rule})
@@ -118,5 +121,7 @@ export default {
 	updateOutBoundPort:({Store},outbound_port)=>{
 		Store.dispatch({type:'RULE_UPDATER_SET_OUTBOUND_PORT',outbound_port})
 	},
-
+	updateAction:({Store},action)=>{
+		Store.dispatch({type:'RULE_UPDATER_SET_ACTION',action})
+	},
 }

@@ -4,7 +4,9 @@ class RuleEditor extends React.Component {
   constructor(props) {
     super(props);
   }
-
+  setAction(e){
+    this.props.setAction(e.target.value);
+  }
   render() {
     return (
       <form onSubmit={this.props.onSubmit}>
@@ -30,6 +32,14 @@ class RuleEditor extends React.Component {
           <div className='form-group col-xs-6'>
             <label htmlFor='outbound_port'>Outbound port</label>
             <Input name='outbound_port'type='number' className='form-control' placeholder='Outbound host' max='9999' value={this.props.outbound_port} onChange={this.props.setOutBoundPort} required='required'/>
+          </div>
+          <div className='form-group col-xs-3'>
+            <select className="form-control" required='required' value={this.props.action} onChange={this.setAction.bind(this)}>
+              <option>Select Action</option>
+              <option value='drop' >Drop</option>
+              <option value='reject' >Reject</option>
+              <option value='allow' >Allow</option>
+            </select>
           </div>
         </div>
         {(this.props.children)}

@@ -93,6 +93,7 @@ class RuleDisplay extends React.Component {
       	</div>
       	<div className='rule-content'>
       		<div className='title'>{this.props.rule.title}</div>
+          <div className='action'><span>Action</span> {this.props.rule.action}</div>
       		<div className='config'>
       		<div className='inbound'><span>Inbound</span> {this.props.rule.inbound_host}:{this.props.rule.inbound_port}</div><div className='outbound'><span>Outbound</span> { this.props.rule.outbound_host}:{this.props.rule.outbound_port}</div>
       		</div>

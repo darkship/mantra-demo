@@ -16,7 +16,7 @@ div.firewall{
 			overflow: auto;
 			.list-group-item{
 				min-height: 42px;
-				
+
 				&.active{
 					color:black;
 					background-color: #cdcdcd;
@@ -28,7 +28,7 @@ div.firewall{
 	.content{
 		.rule{
 			font-size: 0;
-			
+
 			@drag-width:30px;
 			@rule-display-height:50px;
 			@actions-width:120px;
@@ -43,14 +43,14 @@ div.firewall{
 				.row{
 					display: block;
 				}
-				
+
 			}
 			.rule-display{
 				width: 100%;
 				border-bottom: 1px solid #D3D3D3;
 				min-height: @rule-display-height;
 				padding: 2px 2px;
-				
+
 				&:hover{
 					background-color: #D3D3D3;
 				}
@@ -83,6 +83,13 @@ div.firewall{
 						width: 100%;
 						font-size: 14px;
 					}
+					.action{
+						font-size: 14px;
+						width: 100%;
+						span{
+							font-weight: 600;
+						}
+					}
 					.config{
 						width: 100%;
 						span{
@@ -96,7 +103,7 @@ div.firewall{
 						}
 					}
 				}
-				
+
 				.actions{
 					line-height: @rule-display-height;
 					vertical-align: middle;

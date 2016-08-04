@@ -24,6 +24,7 @@ export const depsMapper = (context, actions) => ({
   setInboundPort:actions.rule.updateInboundPort,
   setOutboundHost:actions.rule.updateOutboundHost,
   setOutBoundPort:actions.rule.setOutBoundPort,
+  setAction:actions.rule.updateAction,
 });
 
 export default composeAll(
