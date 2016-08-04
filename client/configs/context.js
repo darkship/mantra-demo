@@ -4,6 +4,7 @@ import {FlowRouter} from 'meteor/kadira:flow-router';
 import {ReactiveDict} from 'meteor/reactive-dict';
 import {Tracker} from 'meteor/tracker';
 import {createStore} from 'redux';
+import { Accounts } from 'meteor/accounts-base';
 
 export default function ({reducers}) {
   return {
@@ -12,6 +13,8 @@ export default function ({reducers}) {
     Collections,
     LocalState: new ReactiveDict(),
     Store:new createStore(reducers),
-    Tracker
+    Tracker,
+    Accounts,
+    Modules:[{key:'firewall',url:'firewall',name:'Firewall rules'}],
   };
 }
