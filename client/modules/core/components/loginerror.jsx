@@ -1,13 +1,14 @@
 import React from 'react';
 import Error from './error';
-const Loginerror = ({error}) => {
 
+const Loginerror = ({error}) => {
 	
 	if(error)
 	{
 		let msg='';
 		switch (error.error) {
 		case 401:
+		case 403:
 			msg='Wrong email/password combination';
 			break;
 		default:
@@ -16,7 +17,7 @@ const Loginerror = ({error}) => {
 		}
 		return (<Error msg={msg}/>)			
 	}
-	return (null)
+	return (null);
 }
 
 export default Loginerror;
