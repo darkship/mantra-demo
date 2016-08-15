@@ -33,7 +33,7 @@ class RuleEditor extends React.Component {
             <label htmlFor='outbound_port'>Outbound port</label>
             <Input name='outbound_port'type='number' className='form-control' placeholder='Outbound host' min='0' max='65535' value={this.props.outbound_port} onChange={this.props.setOutBoundPort} required='required'/>
           </div>
-          <div className='form-group col-xs-3'>
+          <div className='form-group col-xs-12'>
             <select className="form-control" required value={this.props.action} onChange={this.setAction.bind(this)}>
               <option>Select Action</option>
               <option value='drop' >Drop</option>
