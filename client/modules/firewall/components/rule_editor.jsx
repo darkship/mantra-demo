@@ -35,7 +35,7 @@ class RuleEditor extends React.Component {
           </div>
           <div className='form-group col-xs-12'>
             <select className="form-control" required value={this.props.action} onChange={this.setAction.bind(this)}>
-              <option>Select Action</option>
+              <option value="">Select Action</option>
               <option value='drop' >Drop</option>
               <option value='reject' >Reject</option>
               <option value='allow' >Allow</option>
