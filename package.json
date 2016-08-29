@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^0.8.7",
     "mantra-core": "^1.2.0",
     "meteor-node-stubs": "^0.2.3",
     "react": "^15.0.0",
