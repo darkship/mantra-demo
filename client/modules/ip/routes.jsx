@@ -4,6 +4,8 @@ import {mount} from 'react-mounter';
 import ThreePanelLayout from '/client/modules/core/components/three_panel_layout.jsx';
 import Header from '/client/modules/core/containers/header';
 
+import Main from '/client/modules/ip/containers/main';
+
 export default function (injectDeps, {FlowRouter}) {
   const ThreePanelLayoutCtx = injectDeps(ThreePanelLayout);
 
@@ -13,7 +15,7 @@ export default function (injectDeps, {FlowRouter}) {
       mount(ThreePanelLayoutCtx, {
        header:()=>(<Header currentModule='ip'/>),
         //aside:()=>(<Sidebar/>),
-        //content: () => (<Ruleset />),
+        content: () => (<Main />),
         className:"ip"
       });
     }

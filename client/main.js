@@ -10,8 +10,10 @@ import ipModule from './modules/ip';
 //reducers
 const coreReducer = coreModule.reducers;
 const firewallReducer = firewallModule.reducers;
+const ipReducer = ipModule.reducers;
+
 const reducers=combineReducers({
-	...coreReducer,...firewallReducer
+	...coreReducer,...firewallReducer,...ipReducer
 })
 
 // init context
