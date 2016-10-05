@@ -1,0 +1,46 @@
+export default {
+  create:({FlowRouter,Collections})=>{
+	const site=new Collections.Sites({title:"new site"});
+	const _id=site.save()
+	FlowRouter.go('/modules/crawler/site/'+_id);
+  },
+  setTitle:({},site,title)=>{
+  	site.set({title});
+  	site.save();
+  },
+  setPageUrl:({},site,pageUrl)=>{
+  	site.set({pageUrl});
+  	site.save();
+  },
+  setMinPage:({},site,minPage)=>{
+  	site.set({minPage});
+  	site.save();
+  },
+  setMaxPage:({},site,maxPage)=>{
+  	site.set({maxPage});
+  	site.save();
+  },
+  remove:({},site)=>{
+  	site.remove();
+  	FlowRouter.go('/modules/crawler/');
+  },
+  setVideoUrlRegex:({},site,videoUrlRegex)=>{
+  	site.set({videoUrlRegex});
+  	site.save();
+  },
+  setActorSelector:({},site,actorSelector)=>{
+  	site.set({actorSelector});
+  	site.save();
+  },
+  setTagSelector:({},site,tagSelector)=>{
+  	site.set({tagSelector});
+  	site.save();
+  },
+  crawl:({Meteor},site)=>{
+  	Meteor.call('crawl.crawl',site._id)
+  },
+  toggleSafe:({Collections},site)=>{
+	site.set({unsafe:!site.unsafe});
+  	site.save();
+  }
+}
