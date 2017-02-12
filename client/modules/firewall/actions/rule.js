@@ -13,16 +13,20 @@ export default {
     Store.dispatch({type: 'RULE_CREATOR_SET_TITLE', title});
   },
   setInboundHost: ({Store}, inboundHost) => {
-    Store.dispatch({type: 'RULE_CREATOR_SET_INBOUND_HOST', inboundHost});
+    Store.dispatch({type: 'RULE_CREATOR_SET_INBOUND_HOST',
+      inbound_host: inboundHost});
   },
   setInboundPort: ({Store}, inboundPort) => {
-    Store.dispatch({type: 'RULE_CREATOR_SET_INBOUND_PORT', inboundPort});
+    Store.dispatch({type: 'RULE_CREATOR_SET_INBOUND_PORT',
+      inbound_port: inboundPort});
   },
   setOutboundHost: ({Store}, outboundHost) => {
-    Store.dispatch({type: 'RULE_CREATOR_SET_OUTBOUND_HOST', outboundHost});
+    Store.dispatch({type: 'RULE_CREATOR_SET_OUTBOUND_HOST',
+      outbound_host: outboundHost});
   },
   setOutBoundPort: ({Store}, outboundPort) => {
-    Store.dispatch({type: 'RULE_CREATOR_SET_OUTBOUND_PORT', outboundPort});
+    Store.dispatch({type: 'RULE_CREATOR_SET_OUTBOUND_PORT',
+      outbound_port: outboundPort});
   },
   setAction: ({Store}, action) => {
     Store.dispatch({type: 'RULE_CREATOR_SET_ACTION', action});
@@ -37,7 +41,8 @@ export default {
       Collections.FirewallRuleSet.findOne(firewallRuleSetId);
     const ruleData =
       {title, inbound_host, inbound_port: parseInt(inbound_port), outbound_host,
-        outbound_port: parseInt(outbound_port), firewallRuleSetId, action};
+        outbound_port: parseInt(outbound_port),
+        firewall_rule_set_id: firewallRuleSetId, action};
 
     let rule = new Collections.FirewallRule(ruleData);
 
@@ -120,16 +125,20 @@ export default {
     Store.dispatch({type: 'RULE_UPDATER_SET_TITLE', title});
   },
   updateInboundHost: ({Store}, inboundHost) => {
-    Store.dispatch({type: 'RULE_UPDATER_SET_INBOUND_HOST', inboundHost});
+    Store.dispatch({type: 'RULE_UPDATER_SET_INBOUND_HOST',
+      inbound_host: inboundHost});
   },
   updateInboundPort: ({Store}, inboundPort) => {
-    Store.dispatch({type: 'RULE_UPDATER_SET_INBOUND_PORT', inboundPort});
+    Store.dispatch({type: 'RULE_UPDATER_SET_INBOUND_PORT',
+      inbound_port: inboundPort});
   },
   updateOutboundHost: ({Store}, outboundHost) => {
-    Store.dispatch({type: 'RULE_UPDATER_SET_OUTBOUND_HOST', outboundHost});
+    Store.dispatch({type: 'RULE_UPDATER_SET_OUTBOUND_HOST',
+      outbound_host: outboundHost});
   },
   updateOutBoundPort: ({Store}, outboundPort) => {
-    Store.dispatch({type: 'RULE_UPDATER_SET_OUTBOUND_PORT', outboundPort});
+    Store.dispatch({type: 'RULE_UPDATER_SET_OUTBOUND_PORT',
+      outbound_port: outboundPort});
   },
   updateAction: ({Store}, action) => {
     Store.dispatch({type: 'RULE_UPDATER_SET_ACTION', action});

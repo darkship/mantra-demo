@@ -7,7 +7,7 @@ export default () => {
     check(firewallRuleSetId, String);
     return [
       FirewallRuleSet.find(firewallRuleSetId),
-      FirewallRule.find({firewallRuleSetId}),
+      FirewallRule.find({firewall_rule_set_id: firewallRuleSetId}),
     ];
   });
 };

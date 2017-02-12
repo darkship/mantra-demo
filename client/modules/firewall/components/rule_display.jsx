@@ -109,37 +109,42 @@ class RuleDisplay extends React.Component {
   render() {
     const {isDragging, connectDropTarget,connectDragSource} = this.props;
     const opacity = isDragging ? 0 : 1;
-    return connectDropTarget(connectDragSource(
-      <div className='rule-display' style={{opacity}} >
-        <div className='rule-drag'>
-          <span className='glyphicon glyphicon-th'></span>
-        </div>
-        <div className='rule-content'>
-          <div className='title'>{this.props.rule.title}</div>
-          <div className='action'><span>Action</span>
-            {this.props.rule.action}</div>
-          <div className='config'>
-          <div className='inbound'><span>Inbound</span>
-            {this.props.rule.inbound_host}:{this.props.rule.inbound_port}
-            </div>
-            <div className='outbound'>
-              <span>Outbound</span>
-              { this.props.rule.outbound_host}:{this.props.rule.outbound_port}
+    if(!this.props.rule)
+    {
+      return null
+    } else {
+      return connectDropTarget(connectDragSource(
+        <div className='rule-display' style={{opacity}} >
+          <div className='rule-drag'>
+            <span className='glyphicon glyphicon-th'></span>
+          </div>
+          <div className='rule-content'>
+            <div className='title'>{this.props.rule.title}</div>
+            <div className='action'><span>Action</span>
+              {this.props.rule.action}</div>
+            <div className='config'>
+              <div className='inbound'><span>Inbound</span>
+                {this.props.rule.inbound_host}:{this.props.rule.inbound_port}
               </div>
+              <div className='outbound'>
+                <span>Outbound</span>
+                { this.props.rule.outbound_host}:{this.props.rule.outbound_port}
+              </div>
+            </div>
+          </div>
+          <div className='actions'>
+            <div className='btn-group'>
+              <button type='button'
+                      className='btn btn-default'
+                      onClick={this.edit.bind(this)}>Edit</button>
+              <button type='button'
+                      className='btn btn-default'
+                      onClick={this.delete.bind(this)}>Delete</button>
+            </div>
           </div>
         </div>
-        <div className='actions'>
-          <div className='btn-group'>
-            <button type='button'
-                    className='btn btn-default'
-                    onClick={this.edit.bind(this)}>Edit</button>
-            <button type='button'
-                    className='btn btn-default'
-                    onClick={this.delete.bind(this)}>Delete</button>
-          </div>
-        </div>
-      </div>
-    ));
+      ));
+    }
   }
 }
 
