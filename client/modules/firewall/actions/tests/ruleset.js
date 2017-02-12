@@ -1,7 +1,7 @@
 const {describe, it} = global;
-import {expect} from 'chai';
-import {spy, stub} from 'sinon';
-import actions from '../ruleset';
+// import {expect} from 'chai';
+// import {spy, stub} from 'sinon';
+// import actions from '../ruleset';
 
 describe('firewall.actions.ruleset', () => {
   it('should do something');

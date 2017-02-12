@@ -1,7 +1,6 @@
-const {describe, it} = global;
-import {expect} from 'chai';
-import {shallow} from 'enzyme';
-import Modulelist from '../modulelist';
+// import {expect} from 'chai';
+// import {shallow} from 'enzyme';
+// import Modulelist from '../modulelist';
 
 describe('core.components.modulelist', () => {
   it('should do something');

@@ -1,7 +1,7 @@
-import SidebarReducer from './sidebar'
-import RuleReducer from './rule'
+import SidebarReducer from './sidebar';
+import RuleReducer from './rule';
 
 export default{
-	SidebarReducer,
-	RuleReducer
-}
+  SidebarReducer,
+  RuleReducer,
+};

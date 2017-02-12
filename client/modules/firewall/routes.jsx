@@ -7,14 +7,14 @@ import Sidebar from './containers/sidebar';
 
 import Ruleset from './containers/ruleset'
 
-export default function (injectDeps, {FlowRouter}) {
+export default  (injectDeps, {FlowRouter}) => {
   const ThreePanelLayoutCtx = injectDeps(ThreePanelLayout);
 
   FlowRouter.route('/modules/firewall', {
     name: 'firewall',
     action() {
       mount(ThreePanelLayoutCtx, {
-      	header:()=>(<Header currentModule='firewall'/>),
+      header:()=>(<Header currentModule='firewall'/>),
         aside:()=>(<Sidebar/>),
         content: () => (<Ruleset />),
         className:"firewall"

@@ -1,5 +1,5 @@
 import crawl from './crawl';
 
-export default function () {
+export default () => {
   crawl();
-}
+};

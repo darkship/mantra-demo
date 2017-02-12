@@ -6,17 +6,17 @@ import Header from '/client/modules/core/containers/header';
 
 import Main from '/client/modules/ip/containers/main';
 
-export default function (injectDeps, {FlowRouter}) {
+export default (injectDeps, {FlowRouter}) => {
   const ThreePanelLayoutCtx = injectDeps(ThreePanelLayout);
 
   FlowRouter.route('/modules/ip', {
     name: 'ip',
     action() {
       mount(ThreePanelLayoutCtx, {
-       header:()=>(<Header currentModule='ip'/>),
-        //aside:()=>(<Sidebar/>),
+       header: ()=>(<Header currentModule='ip'/>),
+        // aside:()=>(<Sidebar/>),
         content: () => (<Main />),
-        className:"ip"
+        className: 'ip'
       });
     }
   });

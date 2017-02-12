@@ -11,39 +11,42 @@ import Register from './containers/register';
 import Modulelist from './containers/modulelist';
 
 
-export default function (injectDeps, {FlowRouter,Meteor}) {
+export default (injectDeps, {FlowRouter, Meteor}) =>{
   const MainLayoutCtx = injectDeps(MainLayout);
   const ThreePanelLayoutCtx = injectDeps(ThreePanelLayout);
-  
-  FlowRouter.triggers.enter([function(context, redirect){
-    if(!Meteor.userId())
-        redirect("/login")
-  }], {except: ['home','login','register']});
 
-  FlowRouter.triggers.enter([function(context, redirect){
-    if(Meteor.userId())
-        redirect("/modules")
-  }], {only: ['home','login','register']});
+  FlowRouter.triggers.enter([(context, redirect) => {
+    if(!Meteor.userId()) {
+      redirect('/login');
+    }
+  }], {except: ['home', 'login', 'register']});
+
+  FlowRouter.triggers.enter([(context, redirect) => {
+    if(Meteor.userId()) {
+      redirect('/modules');
+    }
+  }], {only: ['home', 'login', 'register']});
 
   FlowRouter.route('/', {
-    name:'home',
-    triggersEnter: [function(context, redirect) {
-    redirect('/login');
-  }],
+    name: 'home',
+    triggersEnter: [(context, redirect) =>{
+      redirect('/login');
+    }],
   })
   FlowRouter.route('/login', {
     name: 'login',
     action() {
       mount(MainLayoutCtx, {
-        content: () => (<Login />)
+        content: () => (<Login />),
       });
-    }
+    },
   });
+
   FlowRouter.route('/register', {
     name: 'register',
     action() {
       mount(MainLayoutCtx, {
-        content: () => (<Register />)
+        content: () => (<Register />),
       });
     }
   });
@@ -52,9 +55,9 @@ export default function (injectDeps, {FlowRouter,Meteor}) {
     action() {
       mount(ThreePanelLayoutCtx, {
         content: () => (<Modulelist />),
-        header:()=>(<Header/>),
-        className:'modulelist'        
+        header: ()=>(<Header/>),
+        className: 'modulelist',
       });
-    }
+    },
   });
-}
+};

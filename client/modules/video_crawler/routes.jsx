@@ -8,17 +8,17 @@ import Site from '/client/modules/video_crawler/containers/site';
 import SiteList from '/client/modules/video_crawler/containers/site_list'
 
 
-export default function (injectDeps, {FlowRouter}) {
+export default (injectDeps, {FlowRouter}) => {
   const ThreePanelLayoutCtx = injectDeps(ThreePanelLayout);
 
   FlowRouter.route('/modules/crawler', {
     name: 'crawler',
     action() {
       mount(ThreePanelLayoutCtx, {
-       header:()=>(<Header currentModule='crawler'/>),
-        aside:()=>(<SiteList/>),
-        //content: () => (<Main />),
-        className:"crawler"
+        header: ()=>(<Header currentModule='crawler'/>),
+        aside: ()=>(<SiteList/>),
+        // content: () => (<Main />),
+        className: 'crawler',
       });
     }
   });
@@ -26,12 +26,12 @@ export default function (injectDeps, {FlowRouter}) {
     name: 'crawler',
     action() {
       mount(ThreePanelLayoutCtx, {
-       header:()=>(<Header currentModule='crawler'/>),
-        aside:()=>(<SiteList/>),
+        header: ()=>(<Header currentModule='crawler'/>),
+        aside: ()=>(<SiteList/>),
         content: () => (<Site />),
-        className:"crawler"
+        className: 'crawler',
       });
-    }
+    },
   });
-}
+};
 

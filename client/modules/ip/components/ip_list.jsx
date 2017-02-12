@@ -10,8 +10,8 @@ class IpList extends React.Component {
     return (
       <div className='ip-list'>
     {
-    	this.props.ips.map(i=><IpItem key={i._id} ip={i} editor={this.props.editor} />)
-	}
+    this.props.ips.map(i=><IpItem key={i._id} ip={i} editor={this.props.editor} />)
+}
   </div>
     );
   }

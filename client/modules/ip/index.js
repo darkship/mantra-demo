@@ -6,6 +6,6 @@ export default {
   actions,
   reducers,
   load(context) {
-    
-  }
+
+  },
 };

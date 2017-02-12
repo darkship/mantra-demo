@@ -3,73 +3,73 @@
 @scroll-bar-size:15px;
 @header-height:72px;
 .aside{
-	height: calc(~'100% - @{header-height}');
-	overflow: auto;
-	float: left;
-	width: @aside-width;
-	padding-left: 5px;
-	position:fixed;
-	.sidebarContent{
-		width: 100%
-	}
-	.sidebarToggler{
-		display: none
-	}
+height: calc(~'100% - @{header-height}');
+overflow: auto;
+float: left;
+width: @aside-width;
+padding-left: 5px;
+position:fixed;
+.sidebarContent{
+width: 100%
+}
+.sidebarToggler{
+display: none
+}
 }
 .content{
-	float: left;
-	width: calc(~'100% - @{aside-width} - @{scroll-bar-size}');
-	padding-left: 5px;
-	position:fixed;
-	left:@aside-width;
+float: left;
+width: calc(~'100% - @{aside-width} - @{scroll-bar-size}');
+padding-left: 5px;
+position:fixed;
+left:@aside-width;
 }
 
 @media screen and (max-width: 640px)
 {
-	@expand-button-size:34px;
-	.aside{
-		z-index: 2;
-		width: 100%;
-		left:calc(~'-100% + @{expand-button-size}');
-		.sidebarContent{
-			float:left;
-			width: calc(~'100% - @{expand-button-size}');
-		}
-		.sidebarToggler{
-			display: block;
-			float: right;
-			width: @expand-button-size;
-			padding-left: 1px;
-			padding-right: 1px;
-			button{
-				width: 100%;
-			}
-		}
-		@keyframes expend {
-		    from {left:calc(~'-100% + @{expand-button-size}');}
-		    to {left:0;}
-		}
-		@keyframes retract {
-			from {left:0;}
-		    to {left:calc(~'-100% + @{expand-button-size}');}
-		    
-		}
-		.animate{
-			animation-duration: 1s;
-			 animation-fill-mode: forwards;
-		}
-		&.expend{
-			 animation-name: expend;
-			 .animate();
-		}
-		&.retract{
-			 animation-name: retract;
-			 .animate();
-		}
-	}
-	.content{
-		width:calc(~'100% - @{expand-button-size}');
-		left:@expand-button-size;
-		padding-right: 5px;
-	}
+@expand-button-size:34px;
+.aside{
+z-index: 2;
+width: 100%;
+left:calc(~'-100% + @{expand-button-size}');
+.sidebarContent{
+float:left;
+width: calc(~'100% - @{expand-button-size}');
+}
+.sidebarToggler{
+display: block;
+float: right;
+width: @expand-button-size;
+padding-left: 1px;
+padding-right: 1px;
+button{
+width: 100%;
+}
+}
+@keyframes expend {
+    from {left:calc(~'-100% + @{expand-button-size}');}
+    to {left:0;}
+}
+@keyframes retract {
+from {left:0;}
+    to {left:calc(~'-100% + @{expand-button-size}');}
+
+}
+.animate{
+animation-duration: 1s;
+ animation-fill-mode: forwards;
+}
+&.expend{
+ animation-name: expend;
+ .animate();
+}
+&.retract{
+ animation-name: retract;
+ .animate();
+}
+}
+.content{
+width:calc(~'100% - @{expand-button-size}');
+left:@expand-button-size;
+padding-right: 5px;
+}
 }

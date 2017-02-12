@@ -1,5 +1,7 @@
 import React from 'react';
 import Input from '/client/modules/core/components/input'
+import {Typeahead,Tokenizer} from 'react-typeahead';
+
 class RuleEditor extends React.Component {
   constructor(props) {
     super(props);
@@ -18,6 +20,7 @@ class RuleEditor extends React.Component {
           <div className='form-group col-xs-6'>
             <label htmlFor='inbound_host'>Inbound host</label>
             <Input name='inbound_host'type='text' className='form-control' placeholder='Inbound host' value={this.props.inbound_host} onChange={this.props.setInboundHost} required='required' pattern='^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$' title='Ip address'/>
+            <Tokenizer options={['John', 'Paul', 'George', 'Ringo']} maxVisible={2} value={this.props.inbound_host}/>
           </div>
           <div className='form-group col-xs-6'>
             <label htmlFor='inbound_port'>Inbound port</label>

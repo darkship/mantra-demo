@@ -1,11 +1,10 @@
 const {describe, it} = global;
-import {expect} from 'chai';
-import {stub, spy} from 'sinon';
-import {composer} from '../sidebar';
+// import {expect} from 'chai';
+// import {stub, spy} from 'sinon';
+// import {composer} from '../sidebar';
 
 describe('firewall.containers.sidebar', () => {
   describe('composer', () => {
-
 //    const Tracker = {nonreactive: cb => cb()};
 //    const getCollections = (post) => {
 //      const Collections = {

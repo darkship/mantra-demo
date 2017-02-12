@@ -3,32 +3,28 @@ import {useDeps, composeAll, composeWithTracker, compose} from 'mantra-core';
 import Ruleset from '../components/ruleset.jsx';
 
 export const composer = ({context}, onData) => {
-  const {Meteor, Collections,FlowRouter} = context();
-  const firewall_rule_set_id=FlowRouter.getParam('ruleset')
-  if(firewall_rule_set_id)
-  {
-    if(Meteor.subscribe("firewall_rules",firewall_rule_set_id).ready())
-    {
+  const {Meteor, Collections, FlowRouter} = context();
+  const firewallRuleSetId = FlowRouter.getParam('ruleset');
+  if (firewallRuleSetId) {
+    if (Meteor.subscribe('firewall_rules', firewallRuleSetId).ready()) {
       onData(null, {
-        ruleSet:Collections.FirewallRuleSet.findOne(firewall_rule_set_id),
-        currentRule:FlowRouter.getQueryParam('rule'),
+        ruleSet: Collections.FirewallRuleSet.findOne(firewallRuleSetId),
+        currentRule: FlowRouter.getQueryParam('rule'),
       });
-    }else{
-      onData(null,null);  
+    } else {
+      onData(null, null);
     }
+  } else {
+    onData(null, {});
   }
-  else{
-    onData(null,{});
-  }
-  
 };
-export const composerStore = ({context,_id}, onData) => {
+export const composerStore = ({context, _id}, onData) => {
   const {Store} = context();
 
-  const unsub=Store.subscribe(()=>{
-    onData(null,{editor:Store.getState().RuleReducer.RuleUpdaterReducer})
+  const unsub = Store.subscribe(() => {
+    onData(null, {editor: Store.getState().RuleReducer.RuleUpdaterReducer});
   });
-  onData(null,{})
+  onData(null, {});
   const cleanup = () => {
     unsub();
   };
@@ -36,8 +32,8 @@ export const composerStore = ({context,_id}, onData) => {
 };
 export const depsMapper = (context, actions) => ({
   context: () => context,
-  updateTitle:actions.ruleset.updateTitle,
-  deleteRuleSet:actions.ruleset.delete
+  updateTitle: actions.ruleset.updateTitle,
+  deleteRuleSet: actions.ruleset.delete,
 });
 
 export default composeAll(

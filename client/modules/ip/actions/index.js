@@ -1,7 +1,7 @@
-import ip_new from './ip_new';
-import ip_update from './ip_update';
+import ipNew from './ip_new';
+import ipUpdate from './ip_update';
 
 export default {
-  ip_new,
-  ip_update
+  ipNew,
+  ipUpdate,
 };

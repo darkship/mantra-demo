@@ -1,3 +1,4 @@
 node_modules
 mantra.sublime*
 client/style/react-bootstrap3-switch/
+.idea/

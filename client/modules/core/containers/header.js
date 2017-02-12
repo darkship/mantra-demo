@@ -1,17 +1,17 @@
-import {useDeps, composeAll, composeWithTracker, compose} from 'mantra-core';
+import {useDeps, composeAll, composeWithTracker} from 'mantra-core';
 
 import Header from '../components/header.jsx';
 
 export const composer = ({context}, onData) => {
   const {Modules} = context();
   onData(null, {
- 		Modules
+    Modules,
   });
 };
 
 export const depsMapper = (context, actions) => ({
   context: () => context,
-  logout:actions.header.logout
+  logout: actions.header.logout,
 });
 
 export default composeAll(

@@ -5,5 +5,5 @@ import header from './header';
 export default {
   login,
   register,
-  header
+  header,
 };

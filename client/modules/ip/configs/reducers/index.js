@@ -1,5 +1,5 @@
-import IpReducer from './ip'
+import IpReducer from './ip';
 
 export default {
-	IpReducer
-}
+  IpReducer,
+};

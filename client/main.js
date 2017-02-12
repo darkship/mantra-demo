@@ -6,16 +6,16 @@ import initContext from './configs/context';
 import coreModule from './modules/core';
 import firewallModule from './modules/firewall';
 import ipModule from './modules/ip';
-import video_crawlerModule from './modules/video_crawler';
+import videoCrawlerModule from './modules/video_crawler';
 
-//reducers
+// reducers
 const coreReducer = coreModule.reducers;
 const firewallReducer = firewallModule.reducers;
 const ipReducer = ipModule.reducers;
 
-const reducers=combineReducers({
-	...coreReducer,...firewallReducer,...ipReducer
-})
+const reducers = combineReducers({
+  ...coreReducer, ...firewallReducer, ...ipReducer,
+});
 
 // init context
 const context = initContext({reducers});
@@ -25,5 +25,5 @@ const app = createApp(context);
 app.loadModule(coreModule);
 app.loadModule(firewallModule);
 app.loadModule(ipModule);
-app.loadModule(video_crawlerModule);
+app.loadModule(videoCrawlerModule);
 app.init();

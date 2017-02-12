@@ -1,11 +1,18 @@
 import React from 'react';
 
-const ThreePanelLayout = ({content = () => null,header = () => null,aside = () => null,rightside = () => null,className=''  }) => (
+const ThreePanelLayout = (
+  {
+    content = () => null,
+    header = () => null,
+    aside = () => null,
+    rightside = () => null,
+    className=''}) => (
+
   <div className={className}>
-  	<header className='header'>
-  		{header()}
-  	</header>  	
-		{aside()}
+    <header className='header'>
+      {header()}
+    </header>
+    {aside()}
     <div className='content'>
       {content()}
     </div>

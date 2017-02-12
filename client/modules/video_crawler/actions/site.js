@@ -1,46 +1,46 @@
 export default {
-  create:({FlowRouter,Collections})=>{
-	const site=new Collections.Sites({title:"new site"});
-	const _id=site.save()
-	FlowRouter.go('/modules/crawler/site/'+_id);
+  create: ({FlowRouter, Collections}) => {
+    const site = new Collections.Sites({title: 'new site'});
+    const _id = site.save();
+    FlowRouter.go('/modules/crawler/site/' + _id);
   },
-  setTitle:({},site,title)=>{
-  	site.set({title});
-  	site.save();
+  setTitle: (context, site, title) => {
+    site.set({title});
+    site.save();
   },
-  setPageUrl:({},site,pageUrl)=>{
-  	site.set({pageUrl});
-  	site.save();
+  setPageUrl: (context, site, pageUrl) => {
+    site.set({pageUrl});
+    site.save();
   },
-  setMinPage:({},site,minPage)=>{
-  	site.set({minPage});
-  	site.save();
+  setMinPage: (context, site, minPage) => {
+    site.set({minPage});
+    site.save();
   },
-  setMaxPage:({},site,maxPage)=>{
-  	site.set({maxPage});
-  	site.save();
+  setMaxPage: (context, site, maxPage) => {
+    site.set({maxPage});
+    site.save();
   },
-  remove:({},site)=>{
-  	site.remove();
-  	FlowRouter.go('/modules/crawler/');
+  remove: ({FlowRouter}, site) => {
+    site.remove();
+    FlowRouter.go('/modules/crawler/');
   },
-  setVideoUrlRegex:({},site,videoUrlRegex)=>{
-  	site.set({videoUrlRegex});
-  	site.save();
+  setVideoUrlRegex: (context, site, videoUrlRegex) => {
+    site.set({videoUrlRegex});
+    site.save();
   },
-  setActorSelector:({},site,actorSelector)=>{
-  	site.set({actorSelector});
-  	site.save();
+  setActorSelector: (context, site, actorSelector) => {
+    site.set({actorSelector});
+    site.save();
   },
-  setTagSelector:({},site,tagSelector)=>{
-  	site.set({tagSelector});
-  	site.save();
+  setTagSelector: (context, site, tagSelector) => {
+    site.set({tagSelector});
+    site.save();
   },
-  crawl:({Meteor},site)=>{
-  	Meteor.call('crawl.crawl',site._id)
+  crawl: ({Meteor}, site) => {
+    Meteor.call('crawl.crawl', site._id);
   },
-  toggleSafe:({Collections},site)=>{
-	site.set({unsafe:!site.unsafe});
-  	site.save();
-  }
-}
+  toggleSafe: ({Collections}, site) => {
+    site.set({unsafe: !site.unsafe});
+    site.save();
+  },
+};

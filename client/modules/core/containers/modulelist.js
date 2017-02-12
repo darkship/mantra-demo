@@ -1,16 +1,16 @@
-import {useDeps, composeAll, composeWithTracker, compose} from 'mantra-core';
+import {useDeps, composeAll, composeWithTracker} from 'mantra-core';
 
 import Modulelist from '../components/modulelist.jsx';
 
 export const composer = ({context}, onData) => {
-	const {Modules} = context();
-	  onData(null, {
-	 		Modules
+  const {Modules} = context();
+  onData(null, {
+    Modules,
   });
 };
 
 export const depsMapper = (context, actions) => ({
-  context: () => context
+  context: () => context,
 });
 
 export default composeAll(

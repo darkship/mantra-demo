@@ -1,11 +1,10 @@
 const {describe, it} = global;
-import {expect} from 'chai';
-import {stub, spy} from 'sinon';
-import {composer} from '../ruleset_list';
+// import {expect} from 'chai';
+// import {stub, spy} from 'sinon';
+// import {composer} from '../ruleset_list';
 
 describe('firewall.containers.ruleset_list', () => {
   describe('composer', () => {
-
 //    const Tracker = {nonreactive: cb => cb()};
 //    const getCollections = (post) => {
 //      const Collections = {

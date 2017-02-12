@@ -5,5 +5,5 @@ import rule from './rule';
 export default {
   ruleset,
   sidebar,
-  rule
+  rule,
 };

@@ -6,12 +6,12 @@ class RuleUpdate  extends React.Component {
         super(props);
     }
     hideCreator(){
-	    this.props.hideEditor(this.props.rule);
-	 }
-	 updateRule(e){
-	 	e.preventDefault();
-	 	this.props.updateRule(this.props.rule);
-	 }
+    this.props.hideEditor(this.props.rule);
+ }
+ updateRule(e){
+ e.preventDefault();
+ this.props.updateRule(this.props.rule);
+ }
     render() {
         return (<RuleEditor  {...this.props} {...this.props.editor} onSubmit={this.updateRule.bind(this)}>
               <div className='btn-group'>
