@@ -19,8 +19,8 @@ describe('core.components.loginerror', () => {
       error.find('div').text();
       console.log('error.find(\'div\').text()', error.find('div').text());
     };
-    expect(fn).to.throw('This method is only meant to be run on single node. ' +
-                        '0 found instead.');
+    expect(fn).to.throw('Method “text” is only meant to be run on a single ' +
+      'node. 0 found instead.');
   });
 
   it('handling not authorized ', () => {
