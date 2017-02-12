@@ -25,7 +25,7 @@ class CustomCrawler extends Crawler {
    */
   _pushToQueue(...args) {
     this.emit('queueItemSize.change', this.queueItemSize, +1);
-    super.apply(this, args);
+    super._pushToQueue.apply(this, args);
   }
 
   /**
@@ -96,7 +96,8 @@ export default () => {
         const actors = $(site.actorSelector).map((i, s) => $(s).html()).get();
         console.log('found title', title);
         console.log('url', url);
-        let v = new Videos({pageUrl, title, url, tags, actors, siteId});
+        let v = new Videos({pageUrl, title, url, tags, actors,
+          site_id: siteId});
         v.save((err) => {
           if (err && err.error == 409) {
         // console.error('duplicate')
