@@ -1,58 +1,14 @@
-import {Videos, Sites} from '/lib/collections';
-import {Mongo} from 'meteor/mongo';
+import {Videos, Sites, CrawlerQueue} from '/lib/collections';
 
 import {Meteor} from 'meteor/meteor';
 import {check} from 'meteor/check';
-import Crawler from 'crawler';
+
 // import url from 'url';
 import {_} from 'lodash';
+import Crawler from '/lib/utils/crawler';
 
 const userAgent = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 ' +
   '(KHTML, like Gecko) Chrome/53.0.2785.148 Safari/537.36 Vivaldi/1.4.589.41';
-/**
- * customCrawler
- */
-class CustomCrawler extends Crawler {
-  /**
-   * constructor
-   */
-  constructor(...args) {
-    super(args);
-  }
-
-  /**
-   * _pushToQueue
-   */
-  _pushToQueue(...args) {
-    this.emit('queueItemSize.change', this.queueItemSize, +1);
-    super._pushToQueue.apply(this, args);
-  }
-
-  /**
-   *_release
-   */
-  _release(...args) {
-    this.emit('queueItemSize.change', this.queueItemSize, -1);
-    super._release.apply(this, args);
-  }
-}
-
-
-const Queues = new Mongo.Collection(null);
-
-Meteor.publish('crawlqueue', function(siteId) {
-  check(siteId, String);
-  let self = this;
-  Queues.find({_id: siteId}).observe({
-    added: (doc) => {
-      self.added('crawlqueue', doc._id, doc);
-    },
-    changed: (newDoc) => {
-      self.changed('crawlqueue', newDoc._id, newDoc);
-    },
-  });
-  this.ready();
-});
 
 export default () => {
   Meteor.methods({
@@ -68,11 +24,11 @@ export default () => {
       if (site.isCrawling) {
         throw new Meteor.Error(401, 'Already crawling');
       }
-      const c = new CustomCrawler({userAgent});
+      const c = new Crawler({userAgent});
 
       c.on('queueItemSize.change',
         Meteor.bindEnvironment((queueItemSize, inc) => {
-          Queues.upsert({_id: siteId, user_id: userId},
+          CrawlerQueue.upsert({_id: siteId, user_id: userId},
             {$inc: {queueItemSize: inc}}, (e) => {
               if (e) {
                 console.error(e);
