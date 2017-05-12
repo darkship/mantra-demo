@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "description": "mantra-demo",
   "scripts": {
-    "test": "mocha .scripts/mocha_boot.js client/**/tests/**/*.js lib/**/tests/**/*.js --compilers js:babel-core/register"
+    "test": "mocha .scripts/mocha_boot.js client/**/tests/**/*.js lib/**/tests/**/*.js --compilers js:babel-core/register",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -14,7 +16,7 @@
   "dependencies": {
     "apollo-client": "^0.5.0",
     "bcrypt": "^0.8.7",
-    "crawler": "^0.4.3",
+    "crawler": "^1.0.2",
     "eslint": "^3.19.0",
     "graphql-tag": "^0.1.15",
     "mantra-core": "^1.2.0",
@@ -29,7 +31,8 @@
     "react-mounter": "^1.0.0",
     "react-simple-di": "^1.0.1",
     "react-typeahead": "^2.0.0-alpha.5",
-    "redux": "^3.5.2"
+    "redux": "^3.5.2",
+    "snyk": "^1.30.0"
   },
   "devDependencies": {
     "babel-core": "6.x.x",
@@ -49,5 +52,6 @@
     "mocha": "2.x.x",
     "react-addons-test-utils": "^15.2.1",
     "sinon": "1.17.x"
-  }
+  },
+  "snyk": true
 }
