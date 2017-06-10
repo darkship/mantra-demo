@@ -20,7 +20,7 @@
     "eslint": "^3.19.0",
     "graphql-tag": "^0.1.15",
     "mantra-core": "^1.2.0",
-    "meteor-node-stubs": "^0.2.3",
+    "meteor-node-stubs": "^0.2.11",
     "react": "^15.0.0",
     "react-apollo": "^0.5.13",
     "react-bootstrap-switch": "^15.0.0",
@@ -32,7 +32,8 @@
     "react-simple-di": "^1.0.1",
     "react-typeahead": "^2.0.0-alpha.5",
     "redux": "^3.5.2",
-    "snyk": "^1.30.0"
+    "snyk": "^1.30.0",
+    "whacko": "^0.19.1"
   },
   "devDependencies": {
     "babel-core": "6.x.x",
