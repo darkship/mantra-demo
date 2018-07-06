@@ -5,7 +5,8 @@
   "scripts": {
     "test": "mocha .scripts/mocha_boot.js client/**/tests/**/*.js lib/**/tests/**/*.js --compilers js:babel-core/register",
     "snyk-protect": "snyk protect",
-    "prepublish": "npm run snyk-protect"
+    "prepublish": "npm run snyk-protect",
+    "prepare": "npm run snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -32,7 +33,7 @@
     "react-simple-di": "^1.0.1",
     "react-typeahead": "^2.0.0-alpha.5",
     "redux": "^3.5.2",
-    "snyk": "^1.36.2",
+    "snyk": "^1.88.1",
     "whacko": "^0.19.1"
   },
   "devDependencies": {
